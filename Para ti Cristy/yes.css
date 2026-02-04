@@ -1,0 +1,552 @@
+#envelope {
+  position: relative;
+  width: 420px; 
+  height: 270px; 
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 150px; /* Use margin-top instead of top for better spacing */
+  background-color: #d9534f; 
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.message-title {
+  text-align: center;
+  font-family: "Dancing Script", cursive;
+  font-size: 2rem;
+  color: #d9534f;
+  margin-top: 20px;
+}
+
+.front {
+  position: absolute;
+  width: 0;
+  height: 0;
+  z-index: 3;
+}
+
+.photo {
+  text-align: right;
+  width: 492px;
+  height: auto;
+}
+
+.flap {
+  position: absolute; /* Added to ensure correct placement */
+  z-index: 3;
+  border-left: 210px solid transparent;
+  border-right: 210px solid transparent;
+  border-top: 150px solid #d9534f; /* Fixed: only one large border-top */
+  transform-origin: top;
+  pointer-events: none;
+}
+
+.pocket {
+  border-left: 210px solid #f5a3a2;
+  border-right: 210px solid #f5a3a2;
+  border-bottom: 135px solid #ff6f61;
+  border-top: 135px solid transparent;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+
+.letter {
+  position: relative;
+  background-color: #fff;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  height: 90%;
+  top: 5%;
+  border-radius: 6px;
+  box-shadow: 0 2px 26px rgba(0, 0, 0, 0.12);
+  font-family: "Dancing Script", cursive;
+  font-size: 1.5rem;
+}
+
+.letter:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.words {
+  position: absolute;
+  left: 10%;
+  width: 80%;
+  height: 14%;
+  background-color: #ffe6e6; /* Light romantic tone */
+}
+
+.words.line1 {
+  top: 10%;
+  font-size: 0.5rem;
+  width: 20%;
+  height: 7%;
+  font-size: 0.7rem;
+}
+
+.words.line2 {
+  top: 30%;
+  text-align: center;
+  font-size: 1.6rem;
+}
+
+.words.line3 {
+  top: 50%;
+  font-size: 1.6rem;
+  text-align: center;
+}
+
+.words.line4 {
+  top: 70%;
+  font-size: 1.6rem;
+  text-align: center;
+}
+
+.open .flap {
+  transform: rotateX(180deg);
+  transition: transform 0.4s ease, z-index 0.6s;
+  z-index: 1;
+}
+
+.close .flap {
+  transform: rotateX(0deg);
+  transition: transform 0.4s 0.6s ease, z-index 1s;
+  z-index: 5;
+}
+
+.close .letter {
+  transform: translateY(0px);
+  transition: transform 0.4s ease, z-index 1s;
+  z-index: 1;
+}
+
+.open .letter {
+  transform: translateY(-100px);
+  transition: transform 0.4s 0.6s ease, z-index 0.6s;
+  z-index: 2;
+}
+
+.hearts {
+  position: absolute;
+  top: 90px;
+  left: 0;
+  right: 0;
+  z-index: 2;
+}
+
+.heart {
+  position: absolute;
+  bottom: 0;
+  right: 10%;
+  pointer-events: none;
+}
+
+.heart:before,
+.heart:after {
+  position: absolute;
+  content: "";
+  left: 50px;
+  top: 0;
+  width: 50px;
+  height: 80px;
+  background: #e60073; /* Deep romantic pink */
+  border-radius: 50px 50px 0 0;
+  transform: rotate(-45deg);
+  transform-origin: 0 100%;
+  pointer-events: none;
+}
+
+.heart:after {
+  left: 0;
+  transform: rotate(45deg);
+  transform-origin: 100% 100%;
+}
+
+.close .heart {
+  opacity: 0;
+  -webkit-animation: none;
+  animation: none;
+}
+
+.a1 {
+  left: 20%;
+  transform: scale(0.6);
+  opacity: 1;
+  -webkit-animation: slideUp 4s linear 1, sideSway 2s ease-in-out 4 alternate;
+  -moz-animation: slideUp 4s linear 1, sideSway 2s ease-in-out 4 alternate;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-delay: 0.7s;
+  animation-delay: 0.7s;
+}
+
+.a2 {
+  left: 55%;
+  transform: scale(1);
+  opacity: 1;
+  -webkit-animation: slideUp 5s linear 1, sideSway 4s ease-in-out 2 alternate;
+  -moz-animation: slideUp 5s linear 1, sideSway 4s ease-in-out 2 alternate;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-delay: 0.7s;
+  animation-delay: 0.7s;
+}
+
+.a3 {
+  left: 10%;
+  transform: scale(0.8);
+  opacity: 1;
+  -webkit-animation: slideUp 7s linear 1, sideSway 2s ease-in-out 6 alternate;
+  -moz-animation: slideUp 7s linear 1, sideSway 2s ease-in-out 6 alternate;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-delay: 0.7s;
+  animation-delay: 0.7s;
+}
+
+@-webkit-keyframes slideUp {
+  0% {
+    top: 0;
+  }
+  100% {
+    top: -600px;
+  }
+}
+@keyframes slideUp {
+  0% {
+    top: 0;
+  }
+  100% {
+    top: -600px;
+  }
+}
+@-webkit-keyframes sideSway {
+  0% {
+    margin-left: 0px;
+  }
+  100% {
+    margin-left: 50px;
+  }
+}
+@keyframes sideSway {
+  0% {
+    margin-left: 0px;
+  }
+  100% {
+    margin-left: 50px;
+  }
+}
+body {
+  background-color: #aef2f1; /* Soft lavender for a romantic, dreamy feel */
+}
+
+.envlope-wrapper {
+  height: 380px;
+}
+
+.reset {
+  text-align: center;
+}
+
+.reset button {
+  font-weight: 800;
+  transition: all 0.1s linear;
+  background-color: transparent;
+  border: solid 2px #d9534f;
+  border-radius: 4px;
+  color: #d9534f;
+  display: inline-block;
+  font-size: 14px;
+  text-transform: uppercase;
+  margin: 5px;
+  padding: 10px;
+  min-width: 120px;
+  cursor: pointer;
+  position: relative;
+  /* Removed bottom: 20% to keep buttons visible under the envelope */
+}
+
+.reset button:hover {
+  background-color: #d9534f;
+  color: #fff;
+}
+
+.gallery-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+  margin-top: 150px;
+  padding-bottom: 50px;
+}
+
+.photo-entry {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  width: 80%;
+}
+
+.side-photo {
+  width: 500px; /* Made them smaller */
+  height: auto;
+}
+
+.side-photo-2 {
+  width: 800px; /* Made them smaller */
+  height: auto;
+}
+
+.photo-text {
+  max-width: 300px;
+  font-family: "Dancing Script", cursive;
+  color: #d9534f;
+  text-align: left;
+  font-size: 200%;
+}
+
+.photo-entry-2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  width: 80%;
+  flex-direction: row-reverse;
+}
+
+.photo-text-2 {
+  max-width: 300px;
+  font-family: "Dancing Script", cursive;
+  color: #d9534f;
+  text-align: right;
+  font-size: 200%;
+}
+
+.album {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  width: 80%;
+  flex-direction: column;
+}
+
+
+    .card-container {
+      perspective: 800px;
+    }
+
+    .card {
+      position: relative;
+      width: 332px;
+      height: 210px;
+
+      background: #fffffd;
+      border-radius: 1em;
+      box-shadow: 0 0 6px -4px black;
+      transition: 0.75s all;
+      transform-style: preserve-3d;
+
+      user-select: none;
+    }
+
+    /* Shadow */
+    .card::before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+
+      width: 332px;
+      height: 110px;
+
+      transform: translate(0em, 60%) rotateX(90deg) scale(0.8);
+      border-radius: 100%;
+      background-color: #000a;
+      z-index: -10;
+      filter: blur(24px);
+    }
+
+    /* Flip Effect */
+    .card-container:hover .card {
+      transform: rotateY(180deg);
+    }
+
+    /* BACK */
+    .back {
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      inset: 0.7em;
+      border-radius: 1.25em;
+      background: #191f1f;
+      overflow: hidden;
+    }
+
+    .red {
+      position: absolute;
+      background: #cb0323;
+      inset: 0;
+      border-radius: 100%;
+      transform-origin: center;
+      transform: scale(0.875) skewX(-22.5deg);
+    }
+
+    /* ✅ Removed UNO Text Completely */
+
+    /* FRONT */
+    .frontd {
+      position: absolute;
+      inset: 0.7em;
+      border-radius: 1.25em;
+      background: #cb0323;
+      overflow: hidden;
+
+      transform: rotateY(180deg);
+      backface-visibility: hidden;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* White Border Shape */
+    .front .red {
+      border: 0.7em solid #fffffd;
+      transform: scale(0.92, 0.875) skewX(-22.5deg);
+    }
+
+    /* ✅ IMAGE FULL COVER */
+    .card-image {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 10;
+    }
+
+    .center-card{
+      margin: 0;
+      height: 30vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+
+    
+            .music-player-card {
+            background: rgb(255, 255, 255);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 20px;
+            width: 300px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease;
+        }
+
+        .music-player-card:hover {
+            transform: translateY(-5px);
+            background: rgb(255, 148, 200);
+        }
+
+        /* Image Styling */
+        .cover-art {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            border-radius: 12px;
+            object-fit: cover;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            margin-bottom: 15px;
+        }
+
+        /* Content Section */
+        .track-info {
+            padding: 5px 0;
+        }
+
+        .track-title {
+            color: #000000;
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin: 0 0 8px 0;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .artist-name {
+            color: #000000;
+            font-size: 1rem;
+            margin: 0 0 15px 0;
+        }
+
+        /* Metadata Tags */
+        .metadata-container {
+            display: flex;
+            gap: 8px;
+        }
+
+        .tag {
+            background: rgba(255, 255, 255, 0.1);
+            color: #000000; /* Iconic music green */
+            font-size: 0.7rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            padding: 4px 10px;
+            border-radius: 4px;
+            letter-spacing: 1px;
+        }
+
+        .tag-secondary {
+            background: transparent;
+            border: 1px solid rgba(0, 0, 0, 0.3);
+            color: #000000;
+            font-size: 0.7rem;
+            padding: 4px 10px;
+            border-radius: 4px;
+        }
+
+        .music-card{
+          display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 0vh;
+            margin: 0;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+.music-player-card, .music-card-2, .music-card-3 {
+    flex: 0 1 auto; /* Prevents cards from stretching awkwardly */
+  }
+
+        .card-row {
+    display: flex;            /* Positions children horizontally */
+    justify-content: center;  /* Centers the group of cards */
+    align-items: flex-start;  /* Aligns items to the top */
+    gap: 20px;               /* Adds spacing between the cards */
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+        }
+
+.you {
+    width: 100%;             /* Ensure it takes full width */
+    display: flex;           /* Use flexbox */
+    flex-direction: column;  /* Stack items vertically */
+    align-items: center;     /* Center horizontally */
+    justify-content: center; /* Center vertically */
+    margin: 40px 0;          /* Space above/below */
+    font-family: "Dancing Script", cursive;
+    color: #d9534f;
+    font-size: 300%;
+}
